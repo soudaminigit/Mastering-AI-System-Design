@@ -1,7 +1,15 @@
+# This code is creating a fastapi service for calling a model and returning 200 tokens of response.
+
 from fastapi import FastAPI
 from transformers import pipeline
 app = FastAPI()
+
+# Replace the finetuned-model with any model from huggingface
+
 generator = pipeline("text-generation", model="finetuned-model")
+
+# Create a post method for response generation
+
 @app.post("/generate")
 def generate_text(prompt: str):
     return generator(prompt, max_length=200)
