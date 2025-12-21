@@ -3,10 +3,10 @@
 from bertopic import BERTopic
 # Dimension reduction
 from umap import UMAP
-umap_model = UMAP(n_neighbors=10,
-                  n_components=5,
-                  min_dist=0.1,
-                  metric='cosine',
+umap_model = UMAP(n_neighbors=10, #no of neighbours to consider in clustering
+                  n_components=5, # output dimension
+                  min_dist=0.1, #how close the points to be considered
+                  metric='cosine', # similarity distance metric
                   random_state=100)
 # Initiate BERTopic
 topic_model = BERTopic(umap_model=umap_model, language="english", calculate_probabilities=True)
