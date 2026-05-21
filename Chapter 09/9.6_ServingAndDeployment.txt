@@ -33,10 +33,10 @@ def summarize(article: Article):
     summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
     return {"summary": summary}
 
-Run the server:
+# Run the server:
 uvicorn app:app --reload --port 8000
 
-Now, you can send a POST request:
+# Now, you can send a POST request:
 curl -X POST "http://127.0.0.1:8000/summarize" \
      -H "Content-Type: application/json" \
      -d '{"text": "The government passed a new law today aiming to improve education across the country."}'
